@@ -1,23 +1,39 @@
-import React, {CreateContext, useReducer, createContext} from 'react'
+  
+import React, { createContext, useReducer } from 'react';
+import AppReducer from "./AppReducer"
+
 
 
 const initialState = {
-    transactions: [
-        {id:1, text: 'Flower', amount: -20}
-        ,{id:2, text: 'Salary', amount: 200}
-        ,{id:3, text: 'Camera', amount: -920}
-        ,{id:4, text: 'Laptop', amount: 400}
+  transactions: [
+    { id: 1, text: "Flower", amount: -20 },
+    { id: 2, text: "Salary", amount: 300 },
+    { id: 3, text: "Camera", amount: -10 },
+    { id: 4, text: "Laptop", amount: 150 },
+  ],
+};
 
-    ]
-}
+//Create Context
+export const GlobalContext = createContext(initialState);
 
-export const GlobalContext =  createContext(initialState)
 
-export const GlobalProvider = ({childern}) => {
-    const [state, dispatch] = useReducer(AppReducer, initialState);
+//global provider
+// export const GlobalProvider = ({ childern }) => {
+//   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-    return (<GlobalContext.Provider
-    value={{transactions: state.transactions}}>
-        {childern}
-    </GlobalContext.Provider>)
-}
+//   return (
+//     <GlobalContext.Provider value={{ transactions: state.transactions }}>
+//       {childern}
+//     </GlobalContext.Provider>);
+// };
+
+
+export const GlobalProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  return (
+    <GlobalContext.Provider value={{ transactions: state.transactions }}>
+      {children}
+    </GlobalContext.Provider>
+  );
+};
