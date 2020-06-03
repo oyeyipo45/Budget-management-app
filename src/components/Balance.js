@@ -10,9 +10,17 @@ export const Balance = () => {
     const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
     
     return (
-        <React.Fragment>
+      <React.Fragment>
+        <div className="inc-exp-container">
+          <div>
+            <h4>Budget</h4>
+            <h4>$4000000.00</h4>
+          </div>
+          <div>
             <h4>Your Balance</h4>
-            <h1>${total}</h1>
-        </React.Fragment>
-    )
+            <h4>${total}</h4>
+          </div>
+        </div>
+      </React.Fragment>
+    );
 }
