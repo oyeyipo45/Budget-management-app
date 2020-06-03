@@ -8,8 +8,8 @@ export const Budget = () => {
   console.log(budget);
   
     // const amounts = transactions.map(transaction => transaction.amount);
-     const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
-      const budget = 500 - total;
+    //  const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
+    //   const budget = 500 - total;
     return (
       <React.Fragment>
         <div className="inc-exp-container">

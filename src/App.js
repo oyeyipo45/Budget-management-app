@@ -7,7 +7,7 @@ import { TransactionList } from './components/TransactionList';
 import { AddTransaction } from './components/AddTransaction';
 import { GlobalProvider } from "./context/GlobalState";
 import { Budget } from './components/budget';
-
+import { AddBudget } from './components/AddBudget';
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
         <IncomeExpenses />
         <Balance />
         <AddTransaction /> 
+        <AddBudget />
       </div>
     </GlobalProvider>
   );
