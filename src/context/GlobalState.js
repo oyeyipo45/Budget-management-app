@@ -5,7 +5,7 @@ import AppReducer from "./AppReducer"
 
 
 const initialState = {
-  budget: 20.00,
+  budget: 500.00,
   transactions: [
     { id: 1, text: "Flower", amount: -20 },
     { id: 2, text: "Salary", amount: 300 },
@@ -35,6 +35,20 @@ export const GlobalProvider = ({ children }) => {
   function deleteTransaction(id){
     dispatch({
       type: 'DELETE_TRANSACTION',
+      payload: id
+    });
+  }
+
+  function addTransaction(transaction){
+    dispatch({
+      type: 'ADD_TRANSACTION',
+      payload: id
+    });
+  }
+
+  function AddBudget(id){
+    dispatch({
+      type: 'ADD_BUDGET',
       payload: id
     });
   }

@@ -10,14 +10,15 @@ import { Budget } from './components/budget';
 import { AddBudget } from './components/AddBudget';
 
 function App() {
-  return (
+  return ( 
     <GlobalProvider>
       <Header />
       <div className="container">
+      {/* <Balance /> */}
          <Budget />
         <TransactionList />
         <IncomeExpenses />
-        <Balance />
+        
         <AddTransaction /> 
         <AddBudget />
       </div>

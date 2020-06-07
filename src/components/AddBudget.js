@@ -1,21 +1,30 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
 export const AddBudget = () => {
-
-    const [budget, setBudget] = useState(0);
-    return (
-        <>
-            
+  const [budget, setBudget] = useState([]);
+  const addBudget = () => {
+    setBudget(budget);
+  };
+  return (
+    <>
       <form>
-        
+        <h3>Add New Budget</h3>
         <div className="form-control">
-          <label htmlFor="Budget"
-            >Budget <br />
-        </label>
-          <input type="number" value={budget} onChange={(e) => setBudget(e.target.value)}  placeholder="Enter Budget..." />
+          <label htmlFor="Budget">
+            {" "}
+            <br />
+          </label>
+          <input
+            type="number"
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
+            placeholder="Enter Budget..."
+          />
         </div>
-        <button className="btn">Add Budget</button>
+        <button className="btn" onClick={addBudget}>
+          Add Budget
+        </button>
       </form>
-        </>
-    )
-}
+    </>
+  );
+};
