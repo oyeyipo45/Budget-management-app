@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
+import { GlobalContext } from '../context/GlobalState';
 
 export const AddBudget = () => {
-  const [budget, setBudget] = useState([]);
-  const addBudget = () => {
-    setBudget(budget);
+    const { budgets, addBudget } = useContext(GlobalContext)
+
+  const [budget, setBudget] = useState(0);
+
+  const newBudget = parseInt(budget)
+
+  const onSubmit = (e) => {
+    console.log(budgets);
+    
+    e.preventDefault()
+    addBudget(newBudget);
+    console.log(newBudget);
+    
   };
   return (
     <>
@@ -21,7 +32,7 @@ export const AddBudget = () => {
             placeholder="Enter Budget..."
           />
         </div>
-        <button className="btn" onClick={addBudget}>
+        <button className="btn" onClick={onSubmit}>
           Add Budget
         </button>
       </form>

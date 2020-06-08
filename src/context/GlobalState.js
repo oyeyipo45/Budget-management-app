@@ -5,7 +5,7 @@ import AppReducer from "./AppReducer"
 
 
 const initialState = {
-  budget: 500.00,
+  budgets: 0,
   transactions: [
     { id: 1, text: "Flower", amount: -20 },
     { id: 2, text: "Salary", amount: 300 },
@@ -16,17 +16,6 @@ const initialState = {
 
 //Create Context
 export const GlobalContext = createContext(initialState);
-
-
-//global provider
-// export const GlobalProvider = ({ childern }) => {
-//   const [state, dispatch] = useReducer(AppReducer, initialState);
-
-//   return (
-//     <GlobalContext.Provider value={{ transactions: state.transactions }}>
-//       {childern}
-//     </GlobalContext.Provider>);
-// };
 
 
 export const GlobalProvider = ({ children }) => {
@@ -42,22 +31,24 @@ export const GlobalProvider = ({ children }) => {
   function addTransaction(transaction){
     dispatch({
       type: 'ADD_TRANSACTION',
-      payload: id
+      payload: transaction
     });
   }
 
-  function AddBudget(id){
+  function addBudget(newBudget){
     dispatch({
       type: 'ADD_BUDGET',
-      payload: id
+      payload: newBudget
     });
   }
   return (
     <GlobalContext.Provider 
     value={{ 
       deleteTransaction, 
+      addTransaction,
+      addBudget,
       transactions: state.transactions,
-      budget: state.budget
+      budgets: state.budgets
     }}> 
       {children}
     </GlobalContext.Provider>
