@@ -8,15 +8,13 @@ export default (state, action) => {
         ),
       };
     case "ADD_TRANSACTION":
-      return { ...state,
-       transactions: [action.payload, ...state.transactions, 
-        ]
-    };
+      return {
+        ...state,
+        transactions: [action.payload, ...state.transactions],
+      };
     case "ADD_BUDGET":
-      return {...state,
-        budgets: action.payload
-    };   
+      return { ...state, budgets: action.payload };
     default:
       return state;
-  } 
+  }
 };

@@ -150,6 +150,16 @@ input[type='number'] {
   opacity: 1;
 }
 
+.balance-negative{
+  background: red;
+  color: white;
+}
+
+.balance-positive{
+  background: green;
+  color: white;
+}
+
 @media (max-width: 320px) {
   .container {
     width: 300px;
