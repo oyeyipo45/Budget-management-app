@@ -4,9 +4,9 @@ import { GlobalContext } from "../context/GlobalState";
 export const AddBudget = () => {
   const { addBudget } = useContext(GlobalContext);
 
-  const [budget, setBudget] = useState(0);
+  const [budget, setBudget] = useState("");
 
-  const newBudget = parseInt(budget);
+  let newBudget = parseInt(budget);
 
   const onSubmit = (e) => {
     if (budget === 0 || budget <= 0) {
@@ -18,15 +18,12 @@ export const AddBudget = () => {
       addBudget(newBudget);
     }
   };
+
   return (
     <>
       <form>
         <h3>Add New Budget</h3>
         <div className="form-control">
-          {/* <label htmlFor="Budget">
-            {" "}
-            <br />
-          </label> */}
           <input
             type="number"
             value={budget}
